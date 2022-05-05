@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>WebHomeWork</title>
+
+  <link href="warm/slick.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-latest.js">
+  </script>
+  <script src="warm/slick.js"></script>
+  <script src="warm/jquery.easing.js"></script>
+<style>
+.page1 { position:fixed;top:0;left:0;    /*벽에 딲 붙이기 위해 fixed */
+ width:100%; height:100%; background:#F66;
+}
+.screenfence{
+  position: fixed; top:0;left:0;  /*벽에 딲 붙이기 위해 fixed */
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  visibility: hidden;
+
+}
+.page2 { position:fixed; top:0; left:0; /*벽에 딲 붙이기 위해 fixed */
+ height:200px;
+  width:100%;
+  height:100%;
+visibility:hidden;}
+#exitbutton{
+  position: fixed; right:20px; top:10px;
+  margin-top: 5px;
+  margin-left: -100px;
+  width: 30px;
+  height:30px;
+}
+div.header{
+  width: 100%;
+  height:500px;
+  border:3px solid red;
+  position:fixed;top:0;left:0;    /*벽에 딲 붙이기 위해 fixed */
+   background:#F66;
+}
+button img{
+  width: 45px;
+  height:45px;
+  margin-left: -9px;
+  margin-top:-4px;
+}
+button.pagemove{
+  border:none;
+  width: 40px;
+  height:40px;
+  border-radius: 20px;
+}
+button.pagemove:hover{
+  background-color: #c0c0c0;
+}
+div.left{
+  clear:both;
+  float:left;
+  background-color: black;
+  width: 65%;
+  height: 100%;
+}
+div.right{
+  float:left;
+  background-color: white;
+  width: 35%;
+  height: 100%;
+}
+
+.slider {
+    width: 100%;
+    height: 100%; overflow:hidden;
+    position:relative;
+}
+
+.slider img {
+    width: 0%;
+    height:0%;
+}
+.slick-prev { position:absolute; z-index:999; top:50%; left:5%; border:0; padding:10px;background-image: url("warm.img/leftarrow1.png"); box-shadow:0 0 10px rgba(255,255,255,0.8);
+color:rgba(0,0,0,0); width: 40px; height: 40px; border-radius: 20px; margin-left: -20px; margin-top: -10px;
+  }
+.slick-next { position:absolute; z-index:999; top:50%; right:5%; border:0; padding:10px;background-image: url("warm.img/rightarrow1.png"); box-shadow:0 0 10px rgba(255,255,255,0.8);
+color:rgba(0,0,0,0); width: 40px; height: 40px; border-radius: 20px; margin-right: -20px; margin-top: -10px;}
+
+</style>
+</head>
+<body>
+<div class="header">ds
+<input type="button" onclick="showPage2();" value="Click"></button>
+</div>
+
+<div class="table">
+    <div style="width:28%; float:left; visibility:hidden;">정렬용</div>
+    <div  style="float:left;">
+      <h2 >BEST FRUIT</h2>
+      <table style=" float:left;">
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/A.png"/><p>A</p><p>1 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/B.png"/><p>B</p><p>2 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/C.png"/><p>C</p><p>3 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/D.png"/><p>D</p><p>4 $</p></div></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/E.png"/><p>E</p><p>5 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/F.png"/><p>F</p><p>6 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/G.png"/><p>G</p><p>7 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/H.png"/><p>H</p><p>8 $</p></div></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/I.png"/><p>I</p><p>9 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/J.png"/><p>J</p><p>10 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/K.png"/><p>K</p><p>11 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/L.png"/><p>L</p><p>12 $</p></div></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/M.png"/><p>M</p><p>13 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/N.png"/><p>N</p><p>14 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/O.png"/><p>O</p><p>15 $</p></div></td>
+          <td><div onmouseover="OnMouseOver(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)"><img src="warm.img/P.png"></img><p>P</p><p>16 $</p></div></td>
+        </tr>
+    </table>
+
+
+
+
+<div class="screenfence"></div>
+
+<div class="page2">
+  <a href=""><img id="exitbutton" src="warm.img/exit.png" onclick="Exit()"/></a>
+    <div style="width:10%; margin-top: 25%; float:left;  display:inline-block;">  <button class="pagemove"style="margin-left:35%;"><img src="warm.img/leftarrow.png"></button> </div>
+
+    <div style=" float:left;  margin-top: 2.5%; background-color: white; width:80%; height:90%; display:inline-block;">
+      <div class="left">
+        <div class="slider single-item">
+            <img src="warm.img/cloth7.png" alt="img">
+            <img src="warm.img/cloth3.png" alt="img">
+            <img src="warm.img/cloth7.png" alt="img">
+            <img src="warm.img/cloth3.png" alt="img">
+        </div>
+      </div>
+      <div class="right"></div>
+
+
+
+
+
+    </div>
+
+    <div style="width:10%; margin-top: 25%; float:left;  display:inline-block;"><button class="pagemove"style="margin-left:35%;"><img src="warm.img/rightarrow.png"></button></div>
+</div>
+
+<script>
+$('.single-item').slick({
+  autoplaySpeed:5000,
+  fade:true,
+  cssEase:"ease",
+  easing:"ease",
+});
+</script>
+
+<script>
+
+  function showPage2()  //page2와 screenfecne를 띄운다
+  {
+    var screenFence=document.getElementsByClassName("screenfence");
+    var Page2=document.getElementsByClassName("page2");
+    screenFence[0].style.visibility="visible";
+    Page2[0].style.visibility="visible";
+  }
+  function Exit() //page2와 screenfecne를 제거한다
+  {
+    var screenFence=document.getElementsByClassName("screenfence");
+    var Page2=document.getElementsByClassName("page2");
+    screenFence[0].style.visibility="hidden";
+    Page2[0].style.visibility="hidden";
+  }
+
+  </script>
+</body>
+</body>
+</html>
